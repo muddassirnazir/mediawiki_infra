@@ -49,7 +49,7 @@ variable "aws_tags" {
   type = "map"
   default = {
     "webserver1" = "MediaWiki-Web-1"
-	"webserver2" = "MediaWiki-Web-2"
+	  "webserver2" = "MediaWiki-Web-2"
     "dbserver" = "MediaWikiDB" 
   }
 }
