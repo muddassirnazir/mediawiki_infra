@@ -1,0 +1,10 @@
+*.log
+*.zip
+*.tar
+*.gz
+*.tfstate
+*.tfstate.backup
+.terraform/
+tfplan
+*.pem
+*.retry
