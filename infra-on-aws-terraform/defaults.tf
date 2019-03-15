@@ -16,12 +16,12 @@ variable "azs" {
 }
 
 variable "keyname" {
-  default = "mediawiki"
+  default = "mwkey"
 }
 
 # RHEL 7.5
 variable "aws_ami" {
-  default="ami-77724e12"
+  default="ami-0bfd4dc2013e0e336"
 }
 
 # VPC and Subnet
