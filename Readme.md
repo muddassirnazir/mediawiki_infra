@@ -66,9 +66,8 @@ Steps to setup
 
 	```cd ..\ansible-playbook ```
 
-  ```ansible-playbook site.yml -i ec2.py -vv --private-key mediawiki.pem -i ec2.py --limit "tag_group_db" --tags "install_db" --ask-vault-pass -u ec2-user```
+  	```ansible-playbook site.yml -i ec2.py -vv --private-key mediawiki.pem -i ec2.py --limit "tag_group_db" --tags "install_db" --ask-vault-pass -u ec2-user```
 8. Run Ansible Playbook for the web Role:
   ```ansible-playbook site.yml -i ec2.py -vv --private-key mediawiki.pem -i ec2.py --limit "tag_group_web" --tags "install_web" --ask-vault-pass -u ec2-user``` 
   ```Note: tw is the vault key```
-
 9. Open the Browser and complete the installation wizard.
