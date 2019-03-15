@@ -62,7 +62,7 @@ resource "aws_subnet" "mw_subnet2" {
 
 resource "aws_subnet" "mw_subnet3" {
   vpc_id = "${aws_vpc.mw_vpc.id}"
-  cidr_block = "${var.aws_cidr_subnet2}"
+  cidr_block = "${var.aws_cidr_subnet3}"
   availability_zone = "${element(var.azs, 0)}"
   tags {
     Name = "MediaWikiSubnet3"
