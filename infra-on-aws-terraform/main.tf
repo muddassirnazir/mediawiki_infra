@@ -17,27 +17,27 @@ resource "aws_vpc" "mw_vpc" {
 }
 
 # Creating Internet Gateway to provide Internet to the Subnet
-#resource "aws_internet_gateway" "mw_igw" {
-#    vpc_id = "${aws_vpc.mw_vpc.id}"
-#    tags {
-#        Name = "MediaWiki Internet Gateway for Subnet1"
-#    }
-#}
+resource "aws_internet_gateway" "mw_igw" {
+    vpc_id = "${aws_vpc.mw_vpc.id}"
+    tags {
+        Name = "MediaWiki Internet Gateway for Subnet1"
+    }
+}
 
 # Grant the VPC internet access on its main route table
 
-#resource "aws_route_table" "mw_rt" {
-#  vpc_id = "${aws_vpc.mw_vpc.id}"
-#  route {
-#        cidr_block = "0.0.0.0/0"
-#        gateway_id = "${aws_internet_gateway.mw_igw.id}"
-#    }
-#}
+resource "aws_route_table" "mw_rt" {
+  vpc_id = "${aws_vpc.mw_vpc.id}"
+  route {
+        cidr_block = "0.0.0.0/0"
+        gateway_id = "${aws_internet_gateway.mw_igw.id}"
+    }
+}
 
-#resource "aws_route_table_association" "PublicAZA" {
-#    subnet_id = "${aws_subnet.mw_subnet1.id}"
-#    route_table_id = "${aws_route_table.mw_rt.id}"
-#}
+resource "aws_route_table_association" "PublicAZA" {
+    subnet_id = "${aws_subnet.mw_subnet1.id}"
+    route_table_id = "${aws_route_table.mw_rt.id}"
+}
 
 
 resource "aws_subnet" "mw_subnet1" {
@@ -62,7 +62,7 @@ resource "aws_subnet" "mw_subnet2" {
 
 resource "aws_subnet" "mw_subnet3" {
   vpc_id = "${aws_vpc.mw_vpc.id}"
-  cidr_block = "${var.aws_cidr_subnet2}"
+  cidr_block = "${var.aws_cidr_subnet3}"
   availability_zone = "${element(var.azs, 0)}"
   tags {
     Name = "MediaWikiSubnet3"
